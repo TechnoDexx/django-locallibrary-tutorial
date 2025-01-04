@@ -24,7 +24,7 @@ RUN python manage.py makemigrations
 RUN python manage.py migrate
 RUN python manage.py collectstatic --noinput
 ENV DJANGO_SUPERUSER_USERNAME=Admin
-ENV DJANGO_SUPERUSER_PASSWORD=1977246
+ENV DJANGO_SUPERUSER_PASSWORD=admin1977246
 ENV DJANGO_SUPERUSER_EMAIL="oldghost07@mail.ru"
 RUN python manage.py createsuperuser --noinput
 #--noinput --username Admin --email oldghost07@mail.ru --password admin
