@@ -5,5 +5,5 @@ api=NinjaAPI()
 async def index(request):
   return {"message":"Hello World"}
 @api.get("/hello")
-async def Hello(request):
-  return {"message":"Hello World"}
+async def Hello(request,name="World"):
+  return {"message":f"Hello {name}"}
