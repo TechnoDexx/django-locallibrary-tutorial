@@ -1,10 +1,18 @@
 from ninja import NinjaAPI
 from typing import Union
+from ninja import Schema, Form
+
 api=NinjaAPI()
+class Item(Schema):
+  name: str
+  description: str = None
+  price: float
+  quantity: int
 
 @api.get("/")
 async def index(request):
   return {"message":"Hello World"}
+
 
 @api.get("/hello")
 async def Hello(request,name="World"):
@@ -20,3 +28,7 @@ async def math(request, a:Union[int,None]=None,b:Union[int, None]=None):
 @api.get("/items/{item_id}")
 async def items(request,item_id):
   return {"item_id":item_id}
+
+@api.post("/form_items")
+async def create(request, item:Form[Item]):
+  return item
